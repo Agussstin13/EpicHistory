@@ -1,0 +1,6 @@
+@EpicBackend_HostAddress = http://localhost:5246
+
+GET {{EpicBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

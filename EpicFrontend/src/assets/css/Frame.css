@@ -1,0 +1,34 @@
+.title{
+    font-family: 'sans-serif';
+    color: azure;
+    font-size: 2rem;
+}
+
+.inLineBlock{
+    display: inline-block;
+    vertical-align:top;
+    width: 300px;
+    margin: 1% 1.5% 0 1%;
+}
+
+.frontPageHeroes img{
+    width: 99%;
+    margin: 5% 0 4% 0;
+    border: 0.35vw solid black;
+    filter: brightness(1);
+    filter: saturate(60%);
+    transform: scale(1);
+    transition: transform 10s ease, filter 5s ease; 
+}
+
+.frontPageHeroes img:hover{
+    transform: scale(1.1);
+    filter: brightness(1.25);
+    filter: saturate(155%);
+    transition: transform 10s ease 0.5s, filter 1.0s ease; 
+}
+p {
+    font-size: 1.2rem;
+    color: azure;
+    font-weight: bold;
+}

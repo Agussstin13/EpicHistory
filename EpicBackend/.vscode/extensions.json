@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "richardwillis.vscode-entity-framework",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscodeintellicode-csharp"
+    ]
+}
