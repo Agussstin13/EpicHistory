@@ -1,0 +1,16 @@
+.container{
+  display: flex;
+  width: 200px;
+  height: 200px;
+
+}
+
+.hero-frame {
+  display: flex;
+  width: 176px;
+  height: 200px; 
+  background-image: url('../images/HeroFrame.svg'); /* Ruta de tu imagen de fondo */
+  background-size:cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}

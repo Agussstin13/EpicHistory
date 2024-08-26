@@ -23,10 +23,6 @@ function App() {
     setSession(localStorage.getItem("session"));
   }, []);
 
-function Asd(){
-  return(<Route/>);
-}
-
   return (
     <>
       <SessionContext.Provider value={[session, setSession]}>
@@ -37,7 +33,7 @@ function Asd(){
                   <Route path="/*" element={<TopBar />} >
                       <Route path="DruidCards" element={<DruidDeck />}/>
                       <Route path="MageCards" element={<MageDeck />}/>
-                      <Route path="Chapter1" element={<Introduction />}>
+                      <Route path="Chapter1">
                         {Chapter1()}
                       </Route>
                       <Route path="WarriorCards" element={<WarriorDeck />}/>
