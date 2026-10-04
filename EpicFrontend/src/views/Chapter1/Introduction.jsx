@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../assets/css/Dialog.css";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function Introduction() {
   const [loaded, setLoaded] = useState("lore");

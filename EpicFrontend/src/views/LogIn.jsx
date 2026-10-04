@@ -3,9 +3,8 @@ import "../assets/css/LogIn.css";
 import Button from "../components/Button.jsx";
 import Input from "../components/Input.jsx";
 import Post from "../Controllers/Post.js";
-import { Spinner } from 'reactstrap'
 import { OkeyModal } from "../components/Modals/OkeyModal.jsx";
-import { SessionContext } from "../App.js";
+import { SessionContext } from "../App.jsx";
 
 export default function LogIn(props) {
   const [user, setUser] = useState("");
@@ -13,9 +12,10 @@ export default function LogIn(props) {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState("");
-  const [session, setSession] = useContext(SessionContext);
+  const [, setSession] = useContext(SessionContext);
 
-  function checkLogIn() {
+  function checkLogIn(event) {
+    event.preventDefault();
     setLoading(true);
     Post("LogIn", {
         userOrEmail: user,
@@ -47,17 +47,17 @@ export default function LogIn(props) {
 
   return (
     <div className="loginbody">
-      <form onSubmit={() => checkLogIn()} className="formbody">
+      <form onSubmit={checkLogIn} className="formbody">
         <div className="form">
           <label htmlFor="user">Username</label>
-          <Input style={{width: "300px", height: "25px"}} type="text" setData={setUser} placeholder="ELDERWIZARD999" />
+          <Input id="user" style={{width: "300px", height: "25px"}} type="text" setData={setUser} placeholder="ELDERWIZARD999" />
           <label htmlFor="password">Password</label>
-          <Input style={{width: "300px", height: "25px"}} type="password" setData={setpassword} placeholder="*********" />
+          <Input id="password" style={{width: "300px", height: "25px"}} type="password" setData={setpassword} placeholder="*********" />
           {
             loading ? 
-            <Spinner color="success"/>
+            <span className="spinner-border text-success" role="status" aria-label="Loading" />
             :
-            <Button content="Log In" className="button" event={checkLogIn} />
+            <Button content="Log In" className="button" type="submit" />
           }
         </div>
       </form>

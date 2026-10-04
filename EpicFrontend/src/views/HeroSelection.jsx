@@ -1,4 +1,4 @@
-import Frame from '../components/Frame.js'
+import Frame from '../components/Frame.jsx'
 import Wizard from '../assets/images/Wizard.jpg'
 import Warrior from '../assets/images/Warrior.jpg'
 import Druid from '../assets/images/Druid.jpg'

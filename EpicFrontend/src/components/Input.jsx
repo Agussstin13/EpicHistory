@@ -5,6 +5,6 @@ export default function Input(props){
     }
 
     return(
-        <input style={props.style} type={props.type} onChange={e => changeData(e)} className={props.class} placeholder={props.placeholder}/>
+        <input id={props.id} style={props.style} type={props.type} onChange={e => changeData(e)} className={props.class} placeholder={props.placeholder}/>
     );
 }

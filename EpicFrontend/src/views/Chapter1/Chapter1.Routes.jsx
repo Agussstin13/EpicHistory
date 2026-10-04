@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route } from "react-router";
 import Introduction from "./Introduction";
 import Combat from "../Combat";
 

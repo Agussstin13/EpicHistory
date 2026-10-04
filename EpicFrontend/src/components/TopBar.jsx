@@ -1,7 +1,7 @@
 import Button from "../components/Button.jsx";
 import { useContext, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { SessionContext } from '../App.js';
+import { Outlet, useNavigate } from "react-router";
+import { SessionContext } from '../App.jsx';
 
 export default function TopBar(props) {
   const [classes, setClasses] = useState(true);

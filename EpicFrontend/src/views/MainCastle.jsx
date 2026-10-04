@@ -1,6 +1,6 @@
 import "../assets/css/MainCastle.css";
 import TextBubble from "../components/TextBubble.jsx";
-import { useNavigate, useOutlet } from "react-router-dom";
+import { useNavigate, useOutlet } from "react-router";
 
 export const MainCastle = () => {
   const outlet = useOutlet();

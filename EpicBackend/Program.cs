@@ -23,13 +23,12 @@ builder.Services.AddCors(options => {
 });
 
 
-var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
+var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection")
+    ?? throw new InvalidOperationException("ConnectionStrings:PostgreSQLConnection must be configured.");
+var jwtKey = builder.Configuration["Jwt:key"]
+    ?? throw new InvalidOperationException("Jwt:key must be configured.");
 builder.Services.AddDbContext<EpicContext>(options =>
     options.UseNpgsql(connectionString));
-
-builder.Services.AddDbContext<EpicContext>(options => {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"));
-});
 
 builder.Services.AddSingleton<Jwt>();
 
@@ -45,7 +44,7 @@ builder.Services.AddAuthentication(config =>{
         ValidateAudience = false,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
 });
 builder.Services.AddAuthorization();
@@ -60,9 +59,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 
+app.UseCors("EpicHistory");
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("EpicHistory");
 app.MapControllers();
 
 app.Run();

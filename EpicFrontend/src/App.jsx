@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import DruidDeck from "./views/DruidDeck";
 import MageDeck from "./views/MageDeck";
 import WarriorDeck from "./views/WarriorDeck";
@@ -7,11 +7,9 @@ import TextBubble from "./components/TextBubble.jsx";
 import Tavern from "./views/Tabernero.jsx";
 import { createContext, useEffect, useState } from "react";
 import LogIn from "./views/LogIn.jsx";
-import "./assets/css/Background.css";
 import TopBar from "./components/TopBar.jsx";
 import './assets/css/Background.css'
 import './assets/css/MainCastle.css'
-import Introduction from "./views/Chapter1/Introduction.jsx";
 import Chapter1 from "./views/Chapter1/Chapter1.Routes.jsx";
 
 export const SessionContext = createContext();

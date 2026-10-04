@@ -14,9 +14,7 @@ namespace EpicBackend.Utils{
 
         public string encryptSHA256(string text){
             using(SHA256 sha256Hash = SHA256.Create()){
-                Console.WriteLine(text);
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(text));
-                Console.WriteLine(text);
                 StringBuilder builder = new StringBuilder();
                 for(int i=0;i<bytes.Length;i++){
                     builder.Append(bytes[i].ToString("x2"));
@@ -33,7 +31,9 @@ namespace EpicBackend.Utils{
                 new Claim(ClaimTypes.Name, user.user)
             };
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:key"]));
+            var key = configuration["Jwt:key"]
+                ?? throw new InvalidOperationException("Jwt:key must be configured.");
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
             //crear detalle del token

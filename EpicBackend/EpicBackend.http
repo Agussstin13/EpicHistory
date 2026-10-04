@@ -1,6 +1,6 @@
-@EpicBackend_HostAddress = http://localhost:5246
+@EpicBackend_HostAddress = http://localhost:8080
 
-GET {{EpicBackend_HostAddress}}/weatherforecast/
+GET {{EpicBackend_HostAddress}}/swagger/v1/swagger.json
 Accept: application/json
 
 ###
